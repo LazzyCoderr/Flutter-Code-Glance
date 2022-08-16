@@ -1,1 +1,2 @@
-#Flutter Code Image
+# Flutter Code Image
+This flutter web app helps you to create code image post for your Instagram Or Twitter post account with custom configuration like color, border radius, gradients and much more...
