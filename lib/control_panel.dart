@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_code_image/main.dart';
 
 class ControlPanelWidget extends StatefulWidget {
   @override
@@ -9,9 +10,37 @@ class ControlPanelWidget extends StatefulWidget {
 class _ControlPanelWidgetState extends State<ControlPanelWidget> {
   ScrollController _scrollController = ScrollController();
 
+  late TextEditingController _canvasTitleController;
+  late TextEditingController _canvasWidthController;
+  late TextEditingController _canvasHeightController;
+
+  late TextEditingController _canvasTopLeftBorderController;
+  late TextEditingController _canvasTopRightBorderController;
+  late TextEditingController _canvasBottomLeftBorderController;
+  late TextEditingController _canvasBottomRightBorderController;
+
+  late TextEditingController _canvasOffsetXController;
+  late TextEditingController _canvasOffsetYController;
+  late TextEditingController _canvasBlurRadiusController;
+  late TextEditingController _canvasSpreadRadiusController;
+
   @override
   void initState() {
     super.initState();
+
+    _canvasTitleController = TextEditingController(text: configStore.canvasTitle);
+    _canvasWidthController = TextEditingController(text: configStore.canvasWidth.toString());
+    _canvasHeightController = TextEditingController(text: configStore.canvasHeight.toString());
+
+    _canvasTopLeftBorderController = TextEditingController(text: configStore.topLeftBorderRadius.toString());
+    _canvasTopRightBorderController = TextEditingController(text: configStore.topRightBorderRadius.toString());
+    _canvasBottomLeftBorderController = TextEditingController(text: configStore.bottomLeftBorderRadius.toString());
+    _canvasBottomRightBorderController = TextEditingController(text: configStore.bottomRightBorderRadius.toString());
+
+    _canvasOffsetXController = TextEditingController(text: configStore.shadowOffsetX.toString());
+    _canvasOffsetYController = TextEditingController(text: configStore.shadowOffsetY.toString());
+    _canvasBlurRadiusController = TextEditingController(text: configStore.canvasBackgroundColorBlurRadius.toString());
+    _canvasSpreadRadiusController = TextEditingController(text: configStore.canvasBackgroundSpreadRadius.toString());
   }
 
   @override
@@ -53,6 +82,7 @@ class _ControlPanelWidgetState extends State<ControlPanelWidget> {
                       width: 150,
                       height: 45,
                       child: TextField(
+                        controller: _canvasTitleController,
                         decoration: InputDecoration(
                           hintText: "Image name",
                           border: OutlineInputBorder(
@@ -63,6 +93,9 @@ class _ControlPanelWidgetState extends State<ControlPanelWidget> {
                           fillColor: Colors.white,
                           contentPadding: EdgeInsets.only(bottom: 8.0, left: 8.0, right: 8.0),
                         ),
+                        onChanged: (title) {
+                          configStore.setCanvasTitle(title);
+                        },
                       ),
                     ),
                   ],
@@ -79,6 +112,7 @@ class _ControlPanelWidgetState extends State<ControlPanelWidget> {
                       width: 150,
                       height: 45,
                       child: TextField(
+                        controller: _canvasWidthController,
                         decoration: InputDecoration(
                           hintText: "0.0",
                           border: OutlineInputBorder(
@@ -89,6 +123,9 @@ class _ControlPanelWidgetState extends State<ControlPanelWidget> {
                           fillColor: Colors.white,
                           contentPadding: EdgeInsets.only(bottom: 8.0, left: 8.0, right: 8.0),
                         ),
+                        onChanged: (width) {
+                          configStore.setCanvasWidth(double.parse(width));
+                        },
                       ),
                     ),
                   ],
@@ -105,6 +142,7 @@ class _ControlPanelWidgetState extends State<ControlPanelWidget> {
                       width: 150,
                       height: 45,
                       child: TextField(
+                        controller: _canvasHeightController,
                         decoration: InputDecoration(
                           hintText: "0.0",
                           border: OutlineInputBorder(
@@ -115,6 +153,9 @@ class _ControlPanelWidgetState extends State<ControlPanelWidget> {
                           fillColor: Colors.white,
                           contentPadding: EdgeInsets.only(bottom: 8.0, left: 8.0, right: 8.0),
                         ),
+                        onChanged: (height) {
+                          configStore.setCanvasHeight(double.parse(height));
+                        },
                       ),
                     ),
                   ],
@@ -136,6 +177,7 @@ class _ControlPanelWidgetState extends State<ControlPanelWidget> {
                       width: 150,
                       height: 45,
                       child: TextField(
+                        controller: _canvasTopLeftBorderController,
                         decoration: InputDecoration(
                           hintText: "0.0",
                           border: OutlineInputBorder(
@@ -146,6 +188,9 @@ class _ControlPanelWidgetState extends State<ControlPanelWidget> {
                           fillColor: Colors.white,
                           contentPadding: EdgeInsets.only(bottom: 8.0, left: 8.0, right: 8.0),
                         ),
+                        onChanged: (topLeftRadius) {
+                          configStore.setTopLeftBorderRadius(double.parse(topLeftRadius));
+                        },
                       ),
                     ),
                   ],
@@ -162,6 +207,7 @@ class _ControlPanelWidgetState extends State<ControlPanelWidget> {
                       width: 150,
                       height: 45,
                       child: TextField(
+                        controller: _canvasTopRightBorderController,
                         decoration: InputDecoration(
                           hintText: "0.0",
                           border: OutlineInputBorder(
@@ -172,6 +218,9 @@ class _ControlPanelWidgetState extends State<ControlPanelWidget> {
                           fillColor: Colors.white,
                           contentPadding: EdgeInsets.only(bottom: 8.0, left: 8.0, right: 8.0),
                         ),
+                        onChanged: (topRightRadius) {
+                          configStore.setTopRightBorderRadius(double.parse(topRightRadius));
+                        },
                       ),
                     ),
                   ],
@@ -188,6 +237,7 @@ class _ControlPanelWidgetState extends State<ControlPanelWidget> {
                       width: 150,
                       height: 45,
                       child: TextField(
+                        controller: _canvasBottomLeftBorderController,
                         decoration: InputDecoration(
                           hintText: "0.0",
                           border: OutlineInputBorder(
@@ -198,6 +248,9 @@ class _ControlPanelWidgetState extends State<ControlPanelWidget> {
                           fillColor: Colors.white,
                           contentPadding: EdgeInsets.only(bottom: 8.0, left: 8.0, right: 8.0),
                         ),
+                        onChanged: (bottomLeftRadius) {
+                          configStore.setBottomLeftBorderRadius(double.parse(bottomLeftRadius));
+                        },
                       ),
                     ),
                   ],
@@ -214,6 +267,7 @@ class _ControlPanelWidgetState extends State<ControlPanelWidget> {
                       width: 150,
                       height: 45,
                       child: TextField(
+                        controller: _canvasBottomRightBorderController,
                         decoration: InputDecoration(
                           hintText: "0.0",
                           border: OutlineInputBorder(
@@ -224,6 +278,9 @@ class _ControlPanelWidgetState extends State<ControlPanelWidget> {
                           fillColor: Colors.white,
                           contentPadding: EdgeInsets.only(bottom: 8.0, left: 8.0, right: 8.0),
                         ),
+                        onChanged: (bottomRightRadius) {
+                          configStore.setBottomRightBorderRadius(double.parse(bottomRightRadius));
+                        },
                       ),
                     ),
                   ],
@@ -245,6 +302,7 @@ class _ControlPanelWidgetState extends State<ControlPanelWidget> {
                       width: 150,
                       height: 45,
                       child: TextField(
+                        controller: _canvasOffsetXController,
                         decoration: InputDecoration(
                           hintText: "0.0",
                           border: OutlineInputBorder(
@@ -255,6 +313,9 @@ class _ControlPanelWidgetState extends State<ControlPanelWidget> {
                           fillColor: Colors.white,
                           contentPadding: EdgeInsets.only(bottom: 8.0, left: 8.0, right: 8.0),
                         ),
+                        onChanged: (offsetX) {
+                          configStore.setShadowOffsetX(double.parse(offsetX));
+                        },
                       ),
                     ),
                   ],
@@ -271,6 +332,7 @@ class _ControlPanelWidgetState extends State<ControlPanelWidget> {
                       width: 150,
                       height: 45,
                       child: TextField(
+                        controller: _canvasOffsetYController,
                         decoration: InputDecoration(
                           hintText: "0.0",
                           border: OutlineInputBorder(
@@ -281,6 +343,9 @@ class _ControlPanelWidgetState extends State<ControlPanelWidget> {
                           fillColor: Colors.white,
                           contentPadding: EdgeInsets.only(bottom: 8.0, left: 8.0, right: 8.0),
                         ),
+                        onChanged: (offsetY) {
+                          configStore.setShadowOffsetY(double.parse(offsetY));
+                        },
                       ),
                     ),
                   ],
@@ -297,6 +362,7 @@ class _ControlPanelWidgetState extends State<ControlPanelWidget> {
                       width: 150,
                       height: 45,
                       child: TextField(
+                        controller: _canvasBlurRadiusController,
                         decoration: InputDecoration(
                           hintText: "0.0",
                           border: OutlineInputBorder(
@@ -307,6 +373,9 @@ class _ControlPanelWidgetState extends State<ControlPanelWidget> {
                           fillColor: Colors.white,
                           contentPadding: EdgeInsets.only(bottom: 8.0, left: 8.0, right: 8.0),
                         ),
+                        onChanged: (blurRadius) {
+                          configStore.setCanvasBackgroundColorBlurRadius(double.parse(blurRadius));
+                        },
                       ),
                     ),
                   ],
@@ -323,6 +392,7 @@ class _ControlPanelWidgetState extends State<ControlPanelWidget> {
                       width: 150,
                       height: 45,
                       child: TextField(
+                        controller: _canvasSpreadRadiusController,
                         decoration: InputDecoration(
                           hintText: "0.0",
                           border: OutlineInputBorder(
@@ -333,6 +403,9 @@ class _ControlPanelWidgetState extends State<ControlPanelWidget> {
                           fillColor: Colors.white,
                           contentPadding: EdgeInsets.only(bottom: 8.0, left: 8.0, right: 8.0),
                         ),
+                        onChanged: (spreadRadius) {
+                          configStore.setCanvasBackgroundSpreadRadius(double.parse(spreadRadius));
+                        },
                       ),
                     ),
                   ],

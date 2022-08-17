@@ -16,11 +16,11 @@ abstract class ConfigStoreBase with Store {
   }
 
   @observable
-  double canvasWidth = 500.0;
+  double canvasWidth = 400.0;
 
   @action
   void setCanvasWidth(double width) {
-    canvasWidth = width == 0.0 ? 500 : width;
+    canvasWidth = width <= 400 ? 400 : width;
   }
 
   @observable
@@ -28,7 +28,7 @@ abstract class ConfigStoreBase with Store {
 
   @action
   void setCanvasHeight(double height) {
-    canvasWidth = height == 0.0 ? 500 : height;
+    canvasHeight = height <= 200 ? 200 : height;
   }
 
   /// Border Configuration
