@@ -9,6 +9,22 @@ part of 'config_store.dart';
 // ignore_for_file: non_constant_identifier_names, unnecessary_brace_in_string_interps, unnecessary_lambdas, prefer_expression_function_bodies, lines_longer_than_80_chars, avoid_as, avoid_annotating_with_dynamic, no_leading_underscores_for_local_identifiers
 
 mixin _$ConfigStore on ConfigStoreBase, Store {
+  late final _$isLoadingAtom =
+      Atom(name: 'ConfigStoreBase.isLoading', context: context);
+
+  @override
+  bool get isLoading {
+    _$isLoadingAtom.reportRead();
+    return super.isLoading;
+  }
+
+  @override
+  set isLoading(bool value) {
+    _$isLoadingAtom.reportWrite(value, super.isLoading, () {
+      super.isLoading = value;
+    });
+  }
+
   late final _$canvasTitleAtom =
       Atom(name: 'ConfigStoreBase.canvasTitle', context: context);
 
@@ -57,159 +73,165 @@ mixin _$ConfigStore on ConfigStoreBase, Store {
     });
   }
 
-  late final _$topLeftBorderRadiusAtom =
-      Atom(name: 'ConfigStoreBase.topLeftBorderRadius', context: context);
+  late final _$canvasBorderRadiusAtom =
+      Atom(name: 'ConfigStoreBase.canvasBorderRadius', context: context);
 
   @override
-  double get topLeftBorderRadius {
-    _$topLeftBorderRadiusAtom.reportRead();
-    return super.topLeftBorderRadius;
+  double get canvasBorderRadius {
+    _$canvasBorderRadiusAtom.reportRead();
+    return super.canvasBorderRadius;
   }
 
   @override
-  set topLeftBorderRadius(double value) {
-    _$topLeftBorderRadiusAtom.reportWrite(value, super.topLeftBorderRadius, () {
-      super.topLeftBorderRadius = value;
+  set canvasBorderRadius(double value) {
+    _$canvasBorderRadiusAtom.reportWrite(value, super.canvasBorderRadius, () {
+      super.canvasBorderRadius = value;
     });
   }
 
-  late final _$topRightBorderRadiusAtom =
-      Atom(name: 'ConfigStoreBase.topRightBorderRadius', context: context);
+  late final _$canvasXOffsetAtom =
+      Atom(name: 'ConfigStoreBase.canvasXOffset', context: context);
 
   @override
-  double get topRightBorderRadius {
-    _$topRightBorderRadiusAtom.reportRead();
-    return super.topRightBorderRadius;
+  double get canvasXOffset {
+    _$canvasXOffsetAtom.reportRead();
+    return super.canvasXOffset;
   }
 
   @override
-  set topRightBorderRadius(double value) {
-    _$topRightBorderRadiusAtom.reportWrite(value, super.topRightBorderRadius,
+  set canvasXOffset(double value) {
+    _$canvasXOffsetAtom.reportWrite(value, super.canvasXOffset, () {
+      super.canvasXOffset = value;
+    });
+  }
+
+  late final _$canvasYOffsetAtom =
+      Atom(name: 'ConfigStoreBase.canvasYOffset', context: context);
+
+  @override
+  double get canvasYOffset {
+    _$canvasYOffsetAtom.reportRead();
+    return super.canvasYOffset;
+  }
+
+  @override
+  set canvasYOffset(double value) {
+    _$canvasYOffsetAtom.reportWrite(value, super.canvasYOffset, () {
+      super.canvasYOffset = value;
+    });
+  }
+
+  late final _$canvasBlurRadiusAtom =
+      Atom(name: 'ConfigStoreBase.canvasBlurRadius', context: context);
+
+  @override
+  double get canvasBlurRadius {
+    _$canvasBlurRadiusAtom.reportRead();
+    return super.canvasBlurRadius;
+  }
+
+  @override
+  set canvasBlurRadius(double value) {
+    _$canvasBlurRadiusAtom.reportWrite(value, super.canvasBlurRadius, () {
+      super.canvasBlurRadius = value;
+    });
+  }
+
+  late final _$canvasSpreadRadiusAtom =
+      Atom(name: 'ConfigStoreBase.canvasSpreadRadius', context: context);
+
+  @override
+  double get canvasSpreadRadius {
+    _$canvasSpreadRadiusAtom.reportRead();
+    return super.canvasSpreadRadius;
+  }
+
+  @override
+  set canvasSpreadRadius(double value) {
+    _$canvasSpreadRadiusAtom.reportWrite(value, super.canvasSpreadRadius, () {
+      super.canvasSpreadRadius = value;
+    });
+  }
+
+  late final _$canvasColorAtom =
+      Atom(name: 'ConfigStoreBase.canvasColor', context: context);
+
+  @override
+  Color get canvasColor {
+    _$canvasColorAtom.reportRead();
+    return super.canvasColor;
+  }
+
+  @override
+  set canvasColor(Color value) {
+    _$canvasColorAtom.reportWrite(value, super.canvasColor, () {
+      super.canvasColor = value;
+    });
+  }
+
+  late final _$canvasBackgroundColorAtom =
+      Atom(name: 'ConfigStoreBase.canvasBackgroundColor', context: context);
+
+  @override
+  CanvasBackgroundColorModel get canvasBackgroundColor {
+    _$canvasBackgroundColorAtom.reportRead();
+    return super.canvasBackgroundColor;
+  }
+
+  @override
+  set canvasBackgroundColor(CanvasBackgroundColorModel value) {
+    _$canvasBackgroundColorAtom.reportWrite(value, super.canvasBackgroundColor,
         () {
-      super.topRightBorderRadius = value;
+      super.canvasBackgroundColor = value;
     });
   }
 
-  late final _$bottomLeftBorderRadiusAtom =
-      Atom(name: 'ConfigStoreBase.bottomLeftBorderRadius', context: context);
+  late final _$canvasTextSizeAtom =
+      Atom(name: 'ConfigStoreBase.canvasTextSize', context: context);
 
   @override
-  double get bottomLeftBorderRadius {
-    _$bottomLeftBorderRadiusAtom.reportRead();
-    return super.bottomLeftBorderRadius;
+  double get canvasTextSize {
+    _$canvasTextSizeAtom.reportRead();
+    return super.canvasTextSize;
   }
 
   @override
-  set bottomLeftBorderRadius(double value) {
-    _$bottomLeftBorderRadiusAtom
-        .reportWrite(value, super.bottomLeftBorderRadius, () {
-      super.bottomLeftBorderRadius = value;
+  set canvasTextSize(double value) {
+    _$canvasTextSizeAtom.reportWrite(value, super.canvasTextSize, () {
+      super.canvasTextSize = value;
     });
   }
 
-  late final _$bottomRightBorderRadiusAtom =
-      Atom(name: 'ConfigStoreBase.bottomRightBorderRadius', context: context);
+  late final _$canvasTextLetterSpacingAtom =
+      Atom(name: 'ConfigStoreBase.canvasTextLetterSpacing', context: context);
 
   @override
-  double get bottomRightBorderRadius {
-    _$bottomRightBorderRadiusAtom.reportRead();
-    return super.bottomRightBorderRadius;
+  double get canvasTextLetterSpacing {
+    _$canvasTextLetterSpacingAtom.reportRead();
+    return super.canvasTextLetterSpacing;
   }
 
   @override
-  set bottomRightBorderRadius(double value) {
-    _$bottomRightBorderRadiusAtom
-        .reportWrite(value, super.bottomRightBorderRadius, () {
-      super.bottomRightBorderRadius = value;
-    });
-  }
-
-  late final _$canvasBackgroundColorBlurRadiusAtom = Atom(
-      name: 'ConfigStoreBase.canvasBackgroundColorBlurRadius',
-      context: context);
-
-  @override
-  double get canvasBackgroundColorBlurRadius {
-    _$canvasBackgroundColorBlurRadiusAtom.reportRead();
-    return super.canvasBackgroundColorBlurRadius;
-  }
-
-  @override
-  set canvasBackgroundColorBlurRadius(double value) {
-    _$canvasBackgroundColorBlurRadiusAtom
-        .reportWrite(value, super.canvasBackgroundColorBlurRadius, () {
-      super.canvasBackgroundColorBlurRadius = value;
-    });
-  }
-
-  late final _$canvasBackgroundSpreadRadiusAtom = Atom(
-      name: 'ConfigStoreBase.canvasBackgroundSpreadRadius', context: context);
-
-  @override
-  double get canvasBackgroundSpreadRadius {
-    _$canvasBackgroundSpreadRadiusAtom.reportRead();
-    return super.canvasBackgroundSpreadRadius;
-  }
-
-  @override
-  set canvasBackgroundSpreadRadius(double value) {
-    _$canvasBackgroundSpreadRadiusAtom
-        .reportWrite(value, super.canvasBackgroundSpreadRadius, () {
-      super.canvasBackgroundSpreadRadius = value;
-    });
-  }
-
-  late final _$canvasBackgroundShadowColorAtom = Atom(
-      name: 'ConfigStoreBase.canvasBackgroundShadowColor', context: context);
-
-  @override
-  Color get canvasBackgroundShadowColor {
-    _$canvasBackgroundShadowColorAtom.reportRead();
-    return super.canvasBackgroundShadowColor;
-  }
-
-  @override
-  set canvasBackgroundShadowColor(Color value) {
-    _$canvasBackgroundShadowColorAtom
-        .reportWrite(value, super.canvasBackgroundShadowColor, () {
-      super.canvasBackgroundShadowColor = value;
-    });
-  }
-
-  late final _$shadowOffsetXAtom =
-      Atom(name: 'ConfigStoreBase.shadowOffsetX', context: context);
-
-  @override
-  double get shadowOffsetX {
-    _$shadowOffsetXAtom.reportRead();
-    return super.shadowOffsetX;
-  }
-
-  @override
-  set shadowOffsetX(double value) {
-    _$shadowOffsetXAtom.reportWrite(value, super.shadowOffsetX, () {
-      super.shadowOffsetX = value;
-    });
-  }
-
-  late final _$shadowOffsetYAtom =
-      Atom(name: 'ConfigStoreBase.shadowOffsetY', context: context);
-
-  @override
-  double get shadowOffsetY {
-    _$shadowOffsetYAtom.reportRead();
-    return super.shadowOffsetY;
-  }
-
-  @override
-  set shadowOffsetY(double value) {
-    _$shadowOffsetYAtom.reportWrite(value, super.shadowOffsetY, () {
-      super.shadowOffsetY = value;
+  set canvasTextLetterSpacing(double value) {
+    _$canvasTextLetterSpacingAtom
+        .reportWrite(value, super.canvasTextLetterSpacing, () {
+      super.canvasTextLetterSpacing = value;
     });
   }
 
   late final _$ConfigStoreBaseActionController =
       ActionController(name: 'ConfigStoreBase', context: context);
+
+  @override
+  void setLoading(bool val) {
+    final _$actionInfo = _$ConfigStoreBaseActionController.startAction(
+        name: 'ConfigStoreBase.setLoading');
+    try {
+      return super.setLoading(val);
+    } finally {
+      _$ConfigStoreBaseActionController.endAction(_$actionInfo);
+    }
+  }
 
   @override
   void setCanvasTitle(String title) {
@@ -245,99 +267,99 @@ mixin _$ConfigStore on ConfigStoreBase, Store {
   }
 
   @override
-  void setTopLeftBorderRadius(double topLeftRadius) {
+  void setCanvasBorderRadius(double val) {
     final _$actionInfo = _$ConfigStoreBaseActionController.startAction(
-        name: 'ConfigStoreBase.setTopLeftBorderRadius');
+        name: 'ConfigStoreBase.setCanvasBorderRadius');
     try {
-      return super.setTopLeftBorderRadius(topLeftRadius);
+      return super.setCanvasBorderRadius(val);
     } finally {
       _$ConfigStoreBaseActionController.endAction(_$actionInfo);
     }
   }
 
   @override
-  void setTopRightBorderRadius(double topRightRadius) {
+  void setCanvasXOffset(double val) {
     final _$actionInfo = _$ConfigStoreBaseActionController.startAction(
-        name: 'ConfigStoreBase.setTopRightBorderRadius');
+        name: 'ConfigStoreBase.setCanvasXOffset');
     try {
-      return super.setTopRightBorderRadius(topRightRadius);
+      return super.setCanvasXOffset(val);
     } finally {
       _$ConfigStoreBaseActionController.endAction(_$actionInfo);
     }
   }
 
   @override
-  void setBottomLeftBorderRadius(double bottomLeftRadius) {
+  void setCanvasYOffset(double val) {
     final _$actionInfo = _$ConfigStoreBaseActionController.startAction(
-        name: 'ConfigStoreBase.setBottomLeftBorderRadius');
+        name: 'ConfigStoreBase.setCanvasYOffset');
     try {
-      return super.setBottomLeftBorderRadius(bottomLeftRadius);
+      return super.setCanvasYOffset(val);
     } finally {
       _$ConfigStoreBaseActionController.endAction(_$actionInfo);
     }
   }
 
   @override
-  void setBottomRightBorderRadius(double bottomRightRadius) {
+  void setCanvasBlurRadius(double val) {
     final _$actionInfo = _$ConfigStoreBaseActionController.startAction(
-        name: 'ConfigStoreBase.setBottomRightBorderRadius');
+        name: 'ConfigStoreBase.setCanvasBlurRadius');
     try {
-      return super.setBottomRightBorderRadius(bottomRightRadius);
+      return super.setCanvasBlurRadius(val);
     } finally {
       _$ConfigStoreBaseActionController.endAction(_$actionInfo);
     }
   }
 
   @override
-  void setCanvasBackgroundColorBlurRadius(double blurRadius) {
+  void setCanvasSpreadRadius(double val) {
     final _$actionInfo = _$ConfigStoreBaseActionController.startAction(
-        name: 'ConfigStoreBase.setCanvasBackgroundColorBlurRadius');
+        name: 'ConfigStoreBase.setCanvasSpreadRadius');
     try {
-      return super.setCanvasBackgroundColorBlurRadius(blurRadius);
+      return super.setCanvasSpreadRadius(val);
     } finally {
       _$ConfigStoreBaseActionController.endAction(_$actionInfo);
     }
   }
 
   @override
-  void setCanvasBackgroundSpreadRadius(double spreadRadius) {
+  void setCanvasColor(Color val) {
     final _$actionInfo = _$ConfigStoreBaseActionController.startAction(
-        name: 'ConfigStoreBase.setCanvasBackgroundSpreadRadius');
+        name: 'ConfigStoreBase.setCanvasColor');
     try {
-      return super.setCanvasBackgroundSpreadRadius(spreadRadius);
+      return super.setCanvasColor(val);
     } finally {
       _$ConfigStoreBaseActionController.endAction(_$actionInfo);
     }
   }
 
   @override
-  void setCanvasBackgroundShadowColor(Color color) {
+  void setCanvasBackgroundColor(CanvasBackgroundColorModel val) {
     final _$actionInfo = _$ConfigStoreBaseActionController.startAction(
-        name: 'ConfigStoreBase.setCanvasBackgroundShadowColor');
+        name: 'ConfigStoreBase.setCanvasBackgroundColor');
     try {
-      return super.setCanvasBackgroundShadowColor(color);
+      return super.setCanvasBackgroundColor(val);
     } finally {
       _$ConfigStoreBaseActionController.endAction(_$actionInfo);
     }
   }
 
   @override
-  void setShadowOffsetX(double offsetX) {
+  void setCanvasTextSize(double val) {
     final _$actionInfo = _$ConfigStoreBaseActionController.startAction(
-        name: 'ConfigStoreBase.setShadowOffsetX');
+        name: 'ConfigStoreBase.setCanvasTextSize');
     try {
-      return super.setShadowOffsetX(offsetX);
+      return super.setCanvasTextSize(val);
     } finally {
       _$ConfigStoreBaseActionController.endAction(_$actionInfo);
     }
   }
 
   @override
-  void setShadowOffsetY(double offsetY) {
+  void setCanvasLetterSpacing(double val) {
     final _$actionInfo = _$ConfigStoreBaseActionController.startAction(
-        name: 'ConfigStoreBase.setShadowOffsetY');
+        name: 'ConfigStoreBase.setCanvasLetterSpacing');
     try {
-      return super.setShadowOffsetY(offsetY);
+      return super.setCanvasLetterSpacing(val);
     } finally {
       _$ConfigStoreBaseActionController.endAction(_$actionInfo);
     }
@@ -346,18 +368,19 @@ mixin _$ConfigStore on ConfigStoreBase, Store {
   @override
   String toString() {
     return '''
+isLoading: ${isLoading},
 canvasTitle: ${canvasTitle},
 canvasWidth: ${canvasWidth},
 canvasHeight: ${canvasHeight},
-topLeftBorderRadius: ${topLeftBorderRadius},
-topRightBorderRadius: ${topRightBorderRadius},
-bottomLeftBorderRadius: ${bottomLeftBorderRadius},
-bottomRightBorderRadius: ${bottomRightBorderRadius},
-canvasBackgroundColorBlurRadius: ${canvasBackgroundColorBlurRadius},
-canvasBackgroundSpreadRadius: ${canvasBackgroundSpreadRadius},
-canvasBackgroundShadowColor: ${canvasBackgroundShadowColor},
-shadowOffsetX: ${shadowOffsetX},
-shadowOffsetY: ${shadowOffsetY}
+canvasBorderRadius: ${canvasBorderRadius},
+canvasXOffset: ${canvasXOffset},
+canvasYOffset: ${canvasYOffset},
+canvasBlurRadius: ${canvasBlurRadius},
+canvasSpreadRadius: ${canvasSpreadRadius},
+canvasColor: ${canvasColor},
+canvasBackgroundColor: ${canvasBackgroundColor},
+canvasTextSize: ${canvasTextSize},
+canvasTextLetterSpacing: ${canvasTextLetterSpacing}
     ''';
   }
 }

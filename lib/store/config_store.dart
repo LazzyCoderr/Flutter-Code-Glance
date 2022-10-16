@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_code_image/model/canvas_color.dart';
+import 'package:flutter_code_image/utils/colors.dart';
 import 'package:mobx/mobx.dart';
 
 part 'config_store.g.dart';
@@ -6,6 +8,14 @@ part 'config_store.g.dart';
 class ConfigStore = ConfigStoreBase with _$ConfigStore;
 
 abstract class ConfigStoreBase with Store {
+  @observable
+  bool isLoading = false;
+
+  @action
+  void setLoading(bool val) {
+    isLoading = val;
+  }
+
   /// Canvas Configuration
   @observable
   String canvasTitle = "";
@@ -20,7 +30,7 @@ abstract class ConfigStoreBase with Store {
 
   @action
   void setCanvasWidth(double width) {
-    canvasWidth = width <= 400 ? 400 : width;
+    canvasWidth = width;
   }
 
   @observable
@@ -28,80 +38,84 @@ abstract class ConfigStoreBase with Store {
 
   @action
   void setCanvasHeight(double height) {
-    canvasHeight = height <= 200 ? 200 : height;
+    canvasHeight = height;
   }
 
   /// Border Configuration
-  @observable
-  double topLeftBorderRadius = 8.0;
-
-  @action
-  void setTopLeftBorderRadius(double topLeftRadius) {
-    topLeftBorderRadius = topLeftRadius;
-  }
 
   @observable
-  double topRightBorderRadius = 8.0;
+  double canvasBorderRadius = 8.0;
 
   @action
-  void setTopRightBorderRadius(double topRightRadius) {
-    topRightBorderRadius = topRightRadius;
-  }
-
-  @observable
-  double bottomLeftBorderRadius = 8.0;
-
-  @action
-  void setBottomLeftBorderRadius(double bottomLeftRadius) {
-    bottomLeftBorderRadius = bottomLeftRadius;
-  }
-
-  @observable
-  double bottomRightBorderRadius = 8.0;
-
-  @action
-  void setBottomRightBorderRadius(double bottomRightRadius) {
-    bottomRightBorderRadius = bottomRightRadius;
+  void setCanvasBorderRadius(double val) {
+    canvasBorderRadius = val;
   }
 
   /// Shadow Configuration
+
   @observable
-  double canvasBackgroundColorBlurRadius = 16.0;
+  double canvasXOffset = 0.0;
 
   @action
-  void setCanvasBackgroundColorBlurRadius(double blurRadius) {
-    canvasBackgroundColorBlurRadius = blurRadius;
+  void setCanvasXOffset(double val) {
+    canvasXOffset = val;
   }
 
   @observable
-  double canvasBackgroundSpreadRadius = 16.0;
+  double canvasYOffset = 0.0;
 
   @action
-  void setCanvasBackgroundSpreadRadius(double spreadRadius) {
-    canvasBackgroundSpreadRadius = spreadRadius;
+  void setCanvasYOffset(double val) {
+    canvasYOffset = val;
   }
 
   @observable
-  Color canvasBackgroundShadowColor = Color(0xFF000000);
+  double canvasBlurRadius = 8.0;
 
   @action
-  void setCanvasBackgroundShadowColor(Color color) {
-    canvasBackgroundShadowColor = color;
+  void setCanvasBlurRadius(double val) {
+    canvasBlurRadius = val;
   }
 
   @observable
-  double shadowOffsetX = 0.0;
+  double canvasSpreadRadius = 8.0;
 
   @action
-  void setShadowOffsetX(double offsetX) {
-    shadowOffsetX = offsetX;
+  void setCanvasSpreadRadius(double val) {
+    canvasSpreadRadius = val;
+  }
+
+  /// Canvas colors
+  @observable
+  Color canvasColor = canvasColorList.first;
+
+  @action
+  void setCanvasColor(Color val) {
+    canvasColor = val;
   }
 
   @observable
-  double shadowOffsetY = 0.0;
+  CanvasBackgroundColorModel canvasBackgroundColor = canvasBackgroundColorList.first;
 
   @action
-  void setShadowOffsetY(double offsetY) {
-    shadowOffsetY = offsetY;
+  void setCanvasBackgroundColor(CanvasBackgroundColorModel val) {
+    canvasBackgroundColor = val;
+  }
+
+  /// Canvas Text size
+  @observable
+  double canvasTextSize = 16.0;
+
+  @action
+  void setCanvasTextSize(double val) {
+    canvasTextSize = val;
+  }
+
+  @observable
+  double canvasTextLetterSpacing = 1.0;
+
+  @action
+  void setCanvasLetterSpacing(double val) {
+    canvasTextLetterSpacing = val;
   }
 }
