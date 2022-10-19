@@ -9,6 +9,7 @@ class NotAvailableWidget extends StatelessWidget {
     return Material(
       child: Center(
         child: SingleChildScrollView(
+          padding: EdgeInsets.all(16),
           child: Column(
             mainAxisSize: MainAxisSize.min,
             crossAxisAlignment: CrossAxisAlignment.center,
