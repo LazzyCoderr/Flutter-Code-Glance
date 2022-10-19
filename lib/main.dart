@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_code_image/code_dashboard.dart';
 import 'package:flutter_code_image/store/config_store.dart';
 import 'package:flutter_code_image/widgets/loader_widget.dart';
+import 'package:flutter_code_image/widgets/not_available_widget.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:screenshot/screenshot.dart';
@@ -33,16 +34,20 @@ class MyApp extends StatelessWidget {
           PointerDeviceKind.unknown,
         },
       ),
-      home: Observer(builder: (context) {
-        return Stack(
-          children: [
-            LayoutBuilder(builder: (layoutContext, layoutConstraint) {
-              return layoutConstraint.minWidth < 1200 || layoutConstraint.minWidth > 992 ? CodeDashBoard() : Container();
-            }),
-            if (configStore.isLoading) Center(child: LoaderWidget()),
-          ],
-        );
-      }),
+      home: Stack(
+        children: [
+          LayoutBuilder(
+            builder: (layoutContext, layoutConstraint) {
+              return layoutConstraint.maxWidth > 1300 && layoutConstraint.maxHeight > 650 ? CodeDashBoard() : NotAvailableWidget();
+            },
+          ),
+          Observer(
+            builder: (context) {
+              return configStore.isLoading ? Center(child: LoaderWidget()) : Offstage();
+            },
+          ),
+        ],
+      ),
     );
   }
 }

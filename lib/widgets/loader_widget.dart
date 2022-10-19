@@ -19,7 +19,19 @@ class LoaderWidget extends StatelessWidget {
                 children: [
                   const CircularProgressIndicator(),
                   const SizedBox(height: 8),
-                  const Text("Please wait...",style: TextStyle(fontSize: 18,color: Colors.white)),
+                  const Text(
+                    "Please wait...",
+                    style: TextStyle(
+                      fontSize: 18,
+                      color: Colors.white,
+                      shadows: [
+                        const Shadow(
+                          blurRadius: 3.0,
+                          color: Color.fromARGB(255, 0, 0, 0),
+                        ),
+                      ],
+                    ),
+                  ),
                 ],
               ),
             ),

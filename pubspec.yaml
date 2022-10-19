@@ -27,7 +27,11 @@ dependencies:
   # Rich text controller
   rich_text_controller: ^1.4.0
 
+  # Lottie Animation
   lottie: ^1.4.3
+
+  # Auto Size text
+  auto_size_text: ^3.0.0
 
 dev_dependencies:
   flutter_test:

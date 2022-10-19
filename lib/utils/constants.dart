@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 
-const not_available = "assets/not_available.json";
-
-const appName = "Code Flance";
+const appVersion = "alpha-1.0.0";
+const appName = "Flutter Code Glance";
+const appDescription =
+    "Flutter Code Glance is hustle free code snippet tool which helps developer to make code snippets with hand pick colour and customized layout. No Figma or photoshop needed to make code snippets. Currently this project is in alpha version and under development also this is free and open source you can download from github link is given below. Share this project with your developer friends. This project is purely written in Dart and Flutter.";
 
 /// Canvas Border, Blur, Spread, etc. start and end value
 const startValue = 0.0;
@@ -92,3 +93,9 @@ Map<RegExp, TextStyle> textWithStyleList = {
   RegExp(r'["]'): TextStyle(color: Colors.deepOrange),
   RegExp(r"[(){}<>\[\]]"): TextStyle(color: Colors.green),
 };
+
+/// Lottie animation constant path
+const notAvailable = "assets/not_available.json";
+
+/// Image constant path
+const codeImage = "assets/code_image.png";

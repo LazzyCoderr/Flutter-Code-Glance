@@ -1,5 +1,6 @@
 import 'dart:html' as html;
 
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_code_image/main.dart';
@@ -8,6 +9,8 @@ import 'package:flutter_code_image/utils/constants.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 
 class ControlPanelWidget extends StatefulWidget {
+  ControlPanelWidget({Key? key}) : super(key: key);
+
   @override
   State<ControlPanelWidget> createState() => _ControlPanelWidgetState();
 }
@@ -39,12 +42,31 @@ class _ControlPanelWidgetState extends State<ControlPanelWidget> {
             children: [
               Padding(
                 padding: const EdgeInsets.all(16.0),
-                child: Row(
-                  mainAxisSize: MainAxisSize.min,
+                child: Column(
                   children: [
-                    Image.asset('assets/code_image.png', width: 40, height: 40),
-                    const SizedBox(width: 16),
-                    const Text("Flutter Code Image", style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
+                    Row(
+                      mainAxisSize: MainAxisSize.min,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Image.asset(codeImage, width: 40, height: 40),
+                        const SizedBox(width: 16),
+                        const AutoSizeText(
+                          appName,
+                          style: TextStyle(
+                            fontSize: 16,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(height: 8),
+                    Text(
+                      appVersion,
+                      style: TextStyle(
+                        fontSize: 14,
+                        color: Colors.grey.shade500,
+                      ),
+                    ),
                   ],
                 ),
               ),
@@ -193,10 +215,7 @@ class _ControlPanelWidgetState extends State<ControlPanelWidget> {
                                 },
                                 child: Container(
                                   margin: EdgeInsets.all(4),
-                                  width: ((MediaQuery
-                                      .of(context)
-                                      .size
-                                      .width * 0.25) / 5) - 15,
+                                  width: ((MediaQuery.of(context).size.width * 0.25) / 5) - 15,
                                   height: 50,
                                   decoration: BoxDecoration(
                                     color: e,
@@ -251,10 +270,7 @@ class _ControlPanelWidgetState extends State<ControlPanelWidget> {
                                 },
                                 child: Container(
                                   margin: EdgeInsets.all(4),
-                                  width: ((MediaQuery
-                                      .of(context)
-                                      .size
-                                      .width * 0.25) / 5) - 15,
+                                  width: ((MediaQuery.of(context).size.width * 0.25) / 5) - 15,
                                   height: 50,
                                   decoration: BoxDecoration(
                                     gradient: LinearGradient(
